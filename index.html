@@ -1,0 +1,1217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<title>Growth Audit — The Body Coach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Nunito+Sans:opsz,wght@6..12,400..800&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: only light;
+  /* ---- The Body Coach, extracted from their live screens ---- */
+  --bc-blue:#0749B9; --bc-blue2:#1B5BD7; --bc-deep:#063E9F; --bc-lime:#D4FF85; --bc-cyan:#00CFDA;
+  --bc-mint:#C4FFFE; --bc-navy:#1B2A4E; --bc-pink:#F9C9D3;
+  --bc-ink:#FFFFFF; --bc-txt:rgba(255,255,255,.82); --bc-muted:rgba(255,255,255,.62); --bc-line:rgba(255,255,255,.34);
+  --bc-pill:#FFFFFF; --bc-pill-ink:#0749B9;
+  --r-ctl:16px; --r-media:22px;
+  /* ---- the report shell, in The Body Coach's own palette ---- */
+  --bg:#F3F7FD; --bg2:#FFFFFF; --surf:#FFFFFF;
+  --hair:rgba(27,42,78,.10); --hair2:rgba(27,42,78,.18);
+  --ink:#1B2A4E; --ink2:#46557A; --ink3:#8491AE;
+  --accent:#0749B9; --accent-lift:#0749B9;
+  --panel:#FFFFFF; --panel-ink:#13203F; --panel-muted:#5E6A86; --panel-line:#E6EBF3;
+  --accent-ink:#063E9F;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);
+  font-family:'Nunito Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+@media(max-width:700px){.wrap{padding:0 20px}}
+.disp{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800}
+
+/* ============ top bar ============ */
+.nav{position:sticky;top:0;z-index:70;background:rgba(243,247,253,.86);backdrop-filter:blur(18px) saturate(160%);
+  border-bottom:1px solid var(--hair)}
+.nav-in{max-width:1080px;margin:0 auto;padding:0 32px;height:58px;display:flex;align-items:center;gap:18px}
+@media(max-width:700px){.nav-in{padding:0 16px;gap:12px}}
+.nav-brand{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600;letter-spacing:-.01em}
+.nav-brand .mk{width:34px;height:32px;flex:none;display:block;color:var(--accent)}
+.nav-brand .mk svg{width:34px;height:32px;display:block}
+.nav-brand span{color:var(--ink2);font-weight:500}
+.nav-brand b{color:var(--ink);font-weight:700}
+.nav-links{margin-left:auto;display:flex;gap:2px;align-items:center}
+.nav-links button{padding:7px 14px;border-radius:8px;font-size:13px;font-weight:700;color:var(--ink3);transition:.16s}
+.nav-links button:hover{color:var(--ink)}
+.nav-links button.on{color:var(--ink);background:#fff;box-shadow:0 1px 4px rgba(27,42,78,.08)}
+@media(max-width:640px){.nav-brand span{display:none}}
+
+.view{display:none}
+.view.on{display:block}
+
+/* ============ hero ============ */
+.hero{padding:104px 0 0;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-340px;left:50%;transform:translateX(-50%);
+  width:1100px;height:640px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(7,73,185,.15),transparent 72%)}
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(40% 50% at 8% 20%,rgba(212,255,133,.55),transparent 70%),
+   radial-gradient(38% 45% at 92% 18%,rgba(0,207,218,.22),transparent 70%)}
+.hero>*{position:relative;z-index:1}
+.eyebrow{font-size:11.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-lift);margin-bottom:26px}
+.hero h1{font-family:'Archivo',sans-serif;font-stretch:125%;font-size:76px;line-height:.98;font-weight:800;letter-spacing:-.035em;margin:0 0 24px;color:var(--ink)}
+@media(max-width:820px){.hero h1{font-size:44px}.hero{padding-top:70px}}
+.hero .lede{font-size:20px;line-height:1.5;font-weight:400;color:var(--ink2);max-width:600px;margin:0 auto;letter-spacing:-.012em}
+@media(max-width:820px){.hero .lede{font-size:17px}}
+.hero .meta{margin-top:30px;font-size:12.5px;color:var(--ink3);letter-spacing:.02em}
+.hero .meta b{color:var(--ink2);font-weight:700}
+
+.stats{display:flex;justify-content:center;gap:0;margin:70px auto 0;max-width:760px;
+  border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.stat{flex:1;padding:26px 14px;text-align:center;border-left:1px solid var(--hair)}
+.stat:first-child{border-left:none}
+.stat b{display:block;font-family:'Archivo',sans-serif;font-stretch:112%;font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.stat span{display:block;font-size:11.5px;color:var(--ink3);margin-top:5px;line-height:1.35}
+@media(max-width:700px){.stat b{font-size:19px}.stat{padding:18px 8px}}
+
+.fb{max-width:760px;margin:0 auto;padding:30px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:26px;text-align:left}
+@media(max-width:700px){.fb{grid-template-columns:1fr;gap:20px;padding-top:24px}}
+.fb-k{grid-column:1/-1;font-size:10.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink3);text-align:center;margin-bottom:-6px}
+.fb-i{display:flex;gap:12px;align-items:flex-start}
+.fb-i .tick{width:18px;height:18px;flex:none;margin-top:3px;border-radius:50%;background:var(--bc-lime);
+  display:grid;place-items:center}
+.fb-i .tick svg{width:10px;height:10px;stroke:var(--accent);stroke-width:3;fill:none;
+  stroke-linecap:round;stroke-linejoin:round}
+.fb-i p{font-size:14px;line-height:1.55;color:var(--ink2);margin:0}
+.fb-i p b{color:var(--ink);font-weight:800}
+
+.sec{padding:96px 0}
+.sec-k{font-size:11.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);margin-bottom:18px}
+.sec h2{font-size:38px;line-height:1.14;font-weight:800;letter-spacing:-.03em;margin:0 0 20px;max-width:700px}
+@media(max-width:820px){.sec h2{font-size:28px}.sec{padding:64px 0}}
+.sec p.body{font-size:17px;line-height:1.66;color:var(--ink2);max-width:640px;margin:0 0 18px;letter-spacing:-.008em}
+.sec p.body b{color:var(--ink);font-weight:700}
+.rule{height:1px;background:var(--hair);margin:0}
+
+.notes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px;max-width:820px}
+@media(max-width:760px){.notes{grid-template-columns:1fr}}
+.note{background:var(--surf);border:1px solid var(--hair);box-shadow:0 2px 10px rgba(27,42,78,.04);border-radius:16px;padding:24px 26px}
+.note h4{font-size:15px;font-weight:800;letter-spacing:-.01em;margin:0 0 8px}
+.note p{font-size:14px;line-height:1.6;color:var(--ink2);margin:0}
+
+.ideas{display:flex;flex-direction:column;gap:0;margin-top:14px;border-top:1px solid var(--hair)}
+.idea{display:grid;grid-template-columns:52px 1fr 180px;gap:26px;align-items:start;
+  padding:30px 4px;border-bottom:1px solid var(--hair);text-align:left;width:100%;transition:.18s}
+.idea:hover{background:rgba(255,255,255,.75)}
+@media(max-width:780px){.idea{grid-template-columns:38px 1fr;gap:16px}}
+.idea .no{font-size:13px;font-weight:800;color:var(--ink3);padding-top:4px;letter-spacing:.02em}
+.idea h3{font-size:21px;line-height:1.25;font-weight:800;letter-spacing:-.02em;margin:0 0 7px}
+@media(max-width:820px){.idea h3{font-size:18px}}
+.idea p{font-size:14.5px;line-height:1.6;color:var(--ink2);margin:0;max-width:540px}
+.idea .out{text-align:right;padding-top:3px}
+@media(max-width:780px){.idea .out{grid-column:2;text-align:left;padding-top:12px}}
+.idea .out b{display:block;font-size:19px;font-weight:800;letter-spacing:-.02em;color:var(--accent-lift);white-space:nowrap}
+.idea .out span{display:block;font-size:10.5px;color:var(--ink3);margin-top:3px;letter-spacing:.04em;text-transform:uppercase;font-weight:700}
+.idea .seeit{display:inline-flex;align-items:center;gap:5px;margin-top:11px;font-size:12.5px;
+  font-weight:800;color:var(--accent-lift)}
+.idea .seeit svg{width:12px;height:12px}
+
+.band{background:var(--accent);color:#fff;border-radius:28px;box-shadow:0 10px 30px -14px rgba(7,73,185,.5);padding:40px 44px;margin-top:44px;
+  display:flex;align-items:center;gap:36px;flex-wrap:wrap;position:relative;overflow:hidden}
+.band::after{content:'';position:absolute;right:-120px;top:-140px;width:360px;height:360px;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(212,255,133,.22),transparent 70%);pointer-events:none}
+@media(max-width:700px){.band{padding:28px 24px;gap:22px}}
+.band .lab{font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:10px}
+.band .txt{flex:1;min-width:240px;position:relative;z-index:1}
+.band .txt p{font-size:15.5px;line-height:1.6;color:rgba(255,255,255,.9);margin:0}
+.band .nums{display:flex;gap:34px;position:relative;z-index:1}
+.band .nums div b{display:block;font-family:'Archivo',sans-serif;font-stretch:118%;font-size:32px;font-weight:800;letter-spacing:-.02em;color:var(--bc-lime)}
+.band .nums div span{display:block;font-size:11px;color:rgba(255,255,255,.72);margin-top:2px;letter-spacing:.04em;
+  text-transform:uppercase;font-weight:700}
+
+.cta-row{display:flex;justify-content:center;margin-top:52px;align-items:center;gap:22px;flex-wrap:wrap}
+.bigbtn{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;
+  font-size:15px;font-weight:800;letter-spacing:.01em;padding:15px 26px;border-radius:30px;transition:.16s}
+.bigbtn:hover{filter:brightness(1.12)}
+.bigbtn svg{width:15px;height:15px}
+
+.foot{border-top:1px solid var(--hair);padding:36px 0 70px;font-size:12.5px;line-height:1.6;color:var(--ink3)}
+
+/* ============ prototype stage ============ */
+.stage{display:grid;grid-template-columns:minmax(440px,1fr) minmax(400px,470px);gap:0;
+  align-items:start;min-height:calc(100vh - 58px)}
+@media(max-width:1080px){.stage{grid-template-columns:1fr}}
+.phonecol{padding:34px 24px 46px;display:flex;flex-direction:column;align-items:center;gap:18px}
+.panelcol{border-left:1px solid var(--hair);background:var(--panel);color:var(--panel-ink);
+  min-height:calc(100vh - 58px);position:sticky;top:58px;max-height:calc(100vh - 58px);overflow-y:auto}
+@media(max-width:1080px){.panelcol{position:static;max-height:none;border-left:none;border-top:1px solid var(--hair)}}
+
+.phone{position:relative;width:390px;height:844px;flex:none;background:#000;border:11px solid #000;
+  border-radius:46px;box-shadow:0 0 0 1.5px #CFD8E6,0 34px 70px -22px rgba(27,42,78,.38)}
+.phone-in{position:absolute;inset:0;border-radius:36px;overflow:hidden;background:var(--bc-blue);color-scheme:only light}
+.island{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:104px;height:30px;background:#000;
+  border-radius:16px;z-index:60;pointer-events:none}
+.sbar{position:absolute;top:0;left:0;right:0;height:50px;z-index:55;pointer-events:none;display:flex;
+  align-items:center;justify-content:space-between;padding:14px 28px 0 34px;font:700 15px/1 -apple-system,'Nunito Sans',sans-serif;color:#111;transition:color .3s}
+.sbar.light{color:#fff}
+.sbar .glyphs{display:flex;gap:5px;align-items:center}
+.homebar{position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:134px;height:5px;
+  border-radius:3px;background:#111;z-index:56;pointer-events:none;transition:background .3s}
+.homebar.light{background:rgba(255,255,255,.9)}
+.screenwrap{position:absolute;inset:0;overflow:hidden;background:var(--bc-blue)}
+
+/* ============ phone screens — The Body Coach's system, all prefixed scr-/bc- ============ */
+.scr{position:absolute;inset:0;display:flex;flex-direction:column;background:var(--bc-blue);color:var(--bc-ink);
+  font-family:'Nunito',-apple-system,sans-serif;
+  transform:translateX(100%);transition:transform .36s cubic-bezier(.32,.72,0,1);z-index:10;will-change:transform}
+.scr.is-active{transform:translateX(0);z-index:20}
+.scr.is-past{transform:translateX(-24%)}
+.scr.sheet{transform:translateY(100%)}
+.scr.sheet.is-active{transform:translateY(0);z-index:30}
+.scr.nofx{transition:none}
+.scr-top{flex:none;padding:50px 22px 0;position:relative;z-index:2}
+.scr-body{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;padding:0 22px;scrollbar-width:none;position:relative;z-index:2}
+.scr-body::-webkit-scrollbar{display:none}
+.scr-body.dock{display:flex;flex-direction:column}
+.scr-foot{flex:none;padding:12px 22px 30px;position:relative;z-index:2}
+
+/* their header: thin progress line, then a bare chevron */
+.bc-prog{height:3px;border-radius:2px;background:rgba(255,255,255,.18);overflow:hidden;margin-top:4px}
+.bc-prog i{display:block;height:100%;background:var(--bc-lime);border-radius:2px;transition:width .4s cubic-bezier(.32,.72,0,1)}
+.bc-back{width:34px;height:34px;margin:10px 0 0 -8px;display:grid;place-items:center;color:#fff}
+.bc-back svg{width:22px;height:22px}
+.bc-h{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:26px;line-height:1.08;letter-spacing:-.01em;margin:8px 0 0;color:var(--bc-ink)}
+.bc-sub{font-size:14.5px;line-height:1.42;color:var(--bc-txt);margin:10px 0 0;font-weight:600}
+.bc-h em,.bc-ph em{font-style:normal;color:var(--bc-lime)}
+
+/* outline answer cards with the lime check */
+.bc-opts{display:flex;flex-direction:column;gap:11px;padding:20px 0 10px}
+.bc-opt{display:flex;align-items:center;gap:12px;width:100%;min-height:60px;padding:12px 16px 12px 18px;border-radius:var(--r-ctl);
+  border:1.5px solid var(--bc-line);text-align:left;color:#fff;transition:border-color .15s,background .15s}
+.bc-opt .tx{flex:1;font-size:15.5px;font-weight:700;line-height:1.25}
+.bc-opt .tx small{display:block;font-size:13px;font-weight:600;color:var(--bc-muted);margin-top:3px}
+.bc-ck{width:22px;height:22px;flex:none;border-radius:50%;border:1.5px solid var(--bc-line);display:grid;place-items:center}
+.bc-ck svg{width:12px;height:12px;stroke:var(--bc-blue);stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.bc-opt.on{border-color:var(--bc-lime);background:rgba(255,255,255,.04)}
+.bc-opt.on .bc-ck{background:var(--bc-lime);border-color:var(--bc-lime)}
+.bc-opt.on .bc-ck svg{opacity:1}
+
+/* their round white next button, bottom right */
+.bc-footr{display:flex;justify-content:flex-end}
+.bc-next{width:56px;height:56px;border-radius:50%;background:#fff;color:var(--bc-blue);display:grid;place-items:center;
+  box-shadow:0 6px 18px -6px rgba(0,0,0,.35);transition:transform .12s}
+.bc-next:active{transform:scale(.94)}
+.bc-next svg{width:20px;height:20px}
+
+/* their pills: white or lime, spaced capitals */
+.bc-pill{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:54px;border-radius:28px;background:var(--bc-pill);color:var(--bc-pill-ink);
+  font:800 13.5px/1 'Nunito',sans-serif;letter-spacing:.14em;text-transform:uppercase;transition:filter .15s}
+.bc-pill:hover{filter:brightness(.97)}
+.bc-pill.lime{background:var(--bc-lime);color:#13306E}
+.bc-pill.blue{background:var(--bc-blue);color:#fff}
+.bc-pill.line{background:transparent;border:2px solid rgba(255,255,255,.85);color:#fff}
+.bc-pill svg{width:18px;height:18px}
+.bc-link{display:block;width:100%;margin-top:12px;font:700 13.5px/1.2 'Nunito',sans-serif;color:var(--bc-navy);opacity:.75}
+.bc-cap{font-size:12.5px;line-height:1.35;color:var(--bc-txt);text-align:center;margin:10px 0 0;font-weight:700}
+
+/* welcome — their first carousel slide */
+.scr--welcome{background:var(--bc-mint);color:var(--bc-navy)}
+.bc-pager{display:flex;gap:6px;margin-top:4px}
+.bc-pager i{flex:1;height:4px;border-radius:2px;background:rgba(27,42,78,.28)}
+.bc-pager i.on{background:linear-gradient(90deg,var(--bc-navy) 30%,rgba(27,42,78,.28) 30%)}
+.bc-wk{font-size:15px;font-weight:600;color:var(--bc-navy);margin:22px 0 0}
+.bc-wh{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:26px;line-height:1.06;color:var(--bc-navy);margin:6px 0 0;letter-spacing:-.01em}
+.bc-collage{position:relative;height:420px;margin:26px auto 0;width:330px}
+.bc-cphone{position:absolute;left:10px;top:0;width:190px;height:170px;border-radius:24px;background:#1E3360;overflow:hidden}
+.bc-cphone img{position:absolute;left:38px;top:12px;width:116px;border-radius:14px 14px 0 0}
+.bc-cfood{position:absolute;right:6px;top:66px;width:150px;height:150px;border-radius:26px;overflow:hidden;border:3px solid var(--bc-mint)}
+.bc-cjoe{position:absolute;left:48px;top:176px;width:224px;height:224px;border-radius:30px;overflow:hidden;border:3px solid var(--bc-mint)}
+.bc-cfood img,.bc-cjoe img{width:100%;height:100%;object-fit:cover;display:block}
+.bc-cjoe img{object-position:40% 30%}
+.bc-tag{position:absolute;font:800 13px/1 'Nunito',sans-serif;letter-spacing:.12em;color:#fff;background:#1E3360;padding:10px 14px;border-radius:16px}
+.bc-tag.eat{right:96px;top:46px;z-index:3}
+.bc-tag.train{left:2px;top:208px;z-index:3}
+.bc-dot{position:absolute;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;z-index:3}
+.bc-dot i{width:22px;height:22px;background:var(--bc-blue);-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat}
+.bc-dot.d1{right:14px;top:22px;background:var(--bc-cyan)}
+.bc-dot.d2{left:0;top:330px;background:var(--bc-pink)}
+
+/* level — Joe on full-bleed photo cards */
+.bc-lvls{display:flex;flex-direction:column;gap:16px;padding:18px 0 14px}
+.bc-lvl{position:relative;height:282px;border-radius:var(--r-media);overflow:hidden;background:#222}
+.bc-lvl img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bc-lvl::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 28%,rgba(0,0,0,.55) 58%,rgba(0,0,0,.82))}
+.bc-lvl .in{position:absolute;left:0;right:0;bottom:0;padding:0 16px 16px;text-align:center;z-index:2}
+.bc-lvl h3{font-family:'Archivo',sans-serif;font-stretch:120%;font-weight:800;font-size:25px;line-height:1;color:#fff}
+.bc-lvl p{font-size:12.5px;line-height:1.38;color:rgba(255,255,255,.9);margin:7px 4px 13px;font-weight:600}
+.bc-lvl .row{display:flex;gap:10px}
+.bc-lvl .row button{flex:1;height:42px;border-radius:22px;font:800 11.5px/1 'Nunito',sans-serif;letter-spacing:.14em}
+.bc-lvl .lm{border:2px solid rgba(255,255,255,.85);color:#fff}
+.bc-lvl .sh{background:var(--bc-lime);color:#13306E}
+.bc-lvl.on{box-shadow:0 0 0 3px var(--bc-lime)}
+
+/* weight — their kg/lb toggle and wheel */
+.bc-unit{display:flex;margin:28px auto 0;width:max-content;background:rgba(255,255,255,.14);border-radius:18px;padding:3px}
+.bc-unit button{min-width:46px;height:30px;border-radius:15px;font:700 13.5px/1 'Nunito',sans-serif;color:#fff}
+.bc-unit button.on{background:#fff;color:var(--bc-blue)}
+.bc-wheelbox{position:relative;height:210px;margin:24px -4px 0}
+.bc-hi{position:absolute;left:0;right:0;top:85px;height:40px;border-radius:12px;background:rgba(255,255,255,.08);pointer-events:none}
+.bc-wheel{position:relative;height:210px;overflow-y:scroll;scroll-snap-type:y mandatory;scrollbar-width:none;
+  -webkit-mask:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent);mask:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent)}
+.bc-wheel::-webkit-scrollbar{display:none}
+.bc-wheel .sp{height:85px}
+.bc-wheel .it{height:40px;line-height:40px;text-align:center;scroll-snap-align:center;font:700 21px/40px 'Nunito',sans-serif;color:#fff;transition:opacity .12s}
+
+/* loader — their warm-up screen */
+.scr--load .scr-body{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.bc-lh{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:24px;line-height:1.12;color:#fff;max-width:300px}
+.bc-shoe{position:relative;width:150px;height:96px;margin:44px auto 36px}
+.bc-shoe i.s{position:absolute;right:6px;top:6px;width:96px;height:80px;background:#fff;-webkit-mask:url(img/shoe.svg) center/contain no-repeat;mask:url(img/shoe.svg) center/contain no-repeat;
+  animation:bcRun .9s ease-in-out infinite alternate}
+.bc-shoe b{position:absolute;height:4px;border-radius:2px;left:0;animation:bcLine 1.2s ease-in-out infinite}
+.bc-shoe b:nth-child(1){top:28px;width:34px;background:var(--bc-cyan)}
+.bc-shoe b:nth-child(2){top:50px;width:26px;left:12px;background:var(--bc-pink);animation-delay:.2s}
+.bc-shoe b:nth-child(3){top:72px;width:56px;left:20px;background:var(--bc-lime);animation-delay:.4s}
+@keyframes bcRun{to{transform:translate(4px,-3px) rotate(-3deg)}}
+@keyframes bcLine{0%,100%{opacity:.35;transform:translateX(6px)}50%{opacity:1;transform:translateX(0)}}
+.bc-steps{display:flex;flex-direction:column;gap:12px;width:100%;max-width:310px;text-align:left}
+.bc-step{display:flex;gap:11px;align-items:center;font-size:14.5px;font-weight:700;color:rgba(255,255,255,.4);transition:color .3s}
+.bc-step .d{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);flex:none;display:grid;place-items:center;transition:.3s}
+.bc-step .d svg{width:12px;height:12px;stroke:var(--bc-blue);stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.bc-step.on{color:#fff}
+.bc-step.on .d{background:var(--bc-lime);border-color:var(--bc-lime)}
+.bc-step.on .d svg{opacity:1}
+
+/* plan ready */
+.bc-ph{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:28px;line-height:1.06;color:#fff;text-align:center;margin-top:14px}
+.bc-psub{text-align:center;font-size:14.5px;color:var(--bc-txt);font-weight:600;margin-top:8px}
+.bc-pcards{display:flex;flex-direction:column;gap:12px;padding:22px 0 12px}
+.bc-pc{display:flex;gap:14px;align-items:center;background:var(--bc-blue2);border-radius:var(--r-media);padding:10px;}
+.bc-pc img{width:86px;height:86px;border-radius:15px;object-fit:cover;flex:none}
+.bc-pc .k{font:800 10.5px/1 'Nunito',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--bc-lime)}
+.bc-pc .v{font-family:'Archivo',sans-serif;font-stretch:115%;font-weight:800;font-size:17px;line-height:1.15;color:#fff;margin-top:6px}
+.bc-pc .s{font-size:12.5px;color:var(--bc-txt);font-weight:600;margin-top:4px;line-height:1.35}
+.bc-pgoal{display:flex;align-items:center;gap:12px;border:1.5px solid var(--bc-lime);border-radius:var(--r-ctl);padding:12px 14px}
+.bc-pgoal .ic{width:36px;height:36px;border-radius:50%;background:var(--bc-lime);flex:none;display:grid;place-items:center}
+.bc-pgoal .ic i{width:20px;height:20px;background:var(--bc-blue);-webkit-mask:url(img/stopwatch.svg) center/contain no-repeat;mask:url(img/stopwatch.svg) center/contain no-repeat}
+.bc-pgoal p{font-size:13.5px;line-height:1.38;font-weight:700;color:#fff}
+.bc-pgoal p span{color:var(--bc-txt);font-weight:600}
+.bc-tr{display:flex;gap:12px;align-items:center;margin-top:2px}
+.bc-tr img{width:120px;height:96px;object-fit:cover;border-radius:15px;flex:none}
+.bc-tr p{font-size:13px;line-height:1.38;font-weight:700;color:#fff}
+.bc-tr span{display:block;font-size:12px;color:var(--bc-lime);font-weight:700;margin-top:6px}
+
+/* paywall — their composition, CTA docked below the scroll */
+.scr--pay{background:var(--bc-blue)}
+.bc-paytop{padding:0;height:0;z-index:6}
+.bc-x{position:absolute;left:16px;top:46px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;display:grid;place-items:center;z-index:5}
+.bc-x svg{width:14px;height:14px}
+.bc-paybody{padding:0}
+.bc-payhead{background:var(--bc-blue2);border-radius:0 0 30px 30px;padding:54px 0 18px;text-align:center}
+.bc-ec{width:72px;display:block;margin:0 auto}
+.bc-payh{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:23px;line-height:1.1;color:#fff;margin:12px 22px 0}
+.bc-payh em{font-style:normal;color:var(--bc-lime)}
+.bc-stars{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:11px;font-size:12.5px;font-weight:700;color:var(--bc-txt)}
+.bc-stars i{font-style:normal;color:var(--bc-lime);letter-spacing:2px;font-size:15px}
+.bc-tiles{display:flex;gap:12px;padding:16px 22px 0;text-align:left}
+.bc-tiles figure{flex:1;min-width:0}
+.bc-tiles img{width:100%;height:92px;object-fit:cover;border-radius:14px;display:block}
+.bc-tiles figcaption{font-size:12.5px;line-height:1.3;font-weight:700;color:#fff;margin-top:7px}
+.bc-paylow{padding:18px 22px 8px}
+.bc-plan{display:block;width:100%;text-align:left;border:1.5px solid var(--bc-line);border-radius:18px;overflow:hidden;margin-bottom:12px;background:var(--bc-blue2);color:#fff}
+.bc-plan .pr{display:flex;align-items:center;gap:10px;padding:13px 16px}
+.bc-plan .pr>div{flex:1}
+.bc-badges{display:flex;gap:6px;margin-bottom:6px}
+.bc-badges span{background:var(--bc-lime);color:#13306E;font:800 9.5px/1 'Nunito',sans-serif;letter-spacing:.06em;padding:4px 6px;border-radius:5px}
+.bc-plan b{display:block;font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:800;font-size:19px;line-height:1.1}
+.bc-plan .p1{font-size:13.5px;font-weight:700;margin-top:3px}
+.bc-plan .p2{font-size:12.5px;font-weight:600;color:var(--bc-muted);margin-top:2px}
+.bc-plan .p2 em{font-style:normal;color:var(--bc-lime)}
+.bc-plan .note{display:flex;gap:9px;align-items:flex-start;padding:10px 16px 11px;background:rgba(0,0,0,.1);font-size:12px;line-height:1.38;font-weight:600;color:var(--bc-txt)}
+.bc-plan .note svg{width:16px;height:16px;flex:none;margin-top:1px}
+.bc-plan.on{border-color:var(--bc-lime)}
+.bc-plan:not(.on) .note{display:none}
+.bc-rad{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--bc-line);flex:none;display:grid;place-items:center;background:rgba(0,0,0,.12)}
+.bc-rad svg{width:13px;height:13px;stroke:var(--bc-blue);stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.bc-plan.on .bc-rad{background:var(--bc-lime);border-color:var(--bc-lime)}
+.bc-plan.on .bc-rad svg{opacity:1}
+.bc-quotes{display:flex;gap:10px;overflow-x:auto;margin:6px -22px 0;padding:0 22px 4px;scrollbar-width:none;scroll-snap-type:x mandatory}
+.bc-quotes::-webkit-scrollbar{display:none}
+.bc-q{flex:0 0 74%;scroll-snap-align:start;background:var(--bc-blue2);border-radius:18px;padding:14px 14px 13px}
+.bc-q .av{width:34px;height:34px;border-radius:50%;background:var(--bc-lime);color:#13306E;display:grid;place-items:center;font:800 14px/1 'Nunito',sans-serif}
+.bc-q p{font-size:13.5px;line-height:1.38;font-weight:700;color:#fff;margin:10px 0 10px}
+.bc-q .who{font-size:12px;font-weight:600;color:var(--bc-muted)}
+.bc-q .who b{display:block;color:var(--bc-lime);font-weight:700}
+.bc-fine{font-size:11px;line-height:1.45;color:var(--bc-muted);text-align:center;margin:14px 0 4px;font-weight:600}
+.bc-payfoot{padding-top:12px;padding-bottom:28px;background:var(--bc-blue);box-shadow:0 -10px 18px -10px rgba(0,0,0,.25)}
+
+/* offer — comparison sheet */
+.scr--offer{background:var(--bc-blue)}
+.bc-grab{width:40px;height:5px;border-radius:3px;background:rgba(255,255,255,.35);margin:0 auto}
+.bc-cmp{margin-top:16px;border-radius:18px;overflow:hidden;border:1.5px solid var(--bc-line)}
+.bc-cr{display:grid;grid-template-columns:1fr 80px 80px;align-items:center;min-height:40px;border-top:1px solid rgba(255,255,255,.12);font-size:13px;font-weight:700}
+.bc-cr:first-child{border-top:none}
+.bc-cr>span{padding:8px 12px;line-height:1.25}
+.bc-cr>span:nth-child(2),.bc-cr>span:nth-child(3){text-align:center;padding:9px 4px;height:100%;display:flex;align-items:center;justify-content:center}
+.bc-cr>span:nth-child(2){background:rgba(212,255,133,.12)}
+.bc-cr.hd{font:800 11px/1 'Nunito',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--bc-txt)}
+.bc-cr.hd>span:nth-child(2){color:var(--bc-lime)}
+.bc-cr .ok{width:20px;height:20px;border-radius:50%;background:var(--bc-lime);display:grid;place-items:center}
+.bc-cr .ok svg{width:11px;height:11px;stroke:var(--bc-blue);stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.bc-cr .big{font-family:'Archivo',sans-serif;font-stretch:112%;font-weight:800;font-size:15px}
+.bc-cr .mut{color:var(--bc-muted);font-weight:600;font-size:12px}
+.bc-mprice{display:flex;align-items:center;justify-content:space-between;margin-top:16px;border:1.5px solid var(--bc-lime);border-radius:18px;padding:14px 16px;background:var(--bc-blue2)}
+.bc-mprice b{font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:800;font-size:19px}
+.bc-mprice span{display:block;font-size:12.5px;color:var(--bc-txt);font-weight:600;margin-top:3px}
+.bc-mprice .amt{font-family:'Archivo',sans-serif;font-stretch:112%;font-weight:800;font-size:22px;text-align:right}
+.bc-mprice .amt small{display:block;font:600 11.5px/1.2 'Nunito',sans-serif;color:var(--bc-muted);margin-top:3px}
+.bc-txtbtn{display:block;width:100%;margin-top:10px;font:800 12px/1 'Nunito',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff;opacity:.85;height:28px}
+
+/* account — their Login or Sign Up, moved */
+.bc-done{display:inline-flex;align-items:center;gap:8px;background:rgba(212,255,133,.16);color:var(--bc-lime);border-radius:16px;padding:7px 12px;font-size:12.5px;font-weight:800;margin-top:14px}
+.bc-done svg{width:13px;height:13px;stroke:currentColor;stroke-width:3.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.bc-field{margin-top:22px}
+.bc-field label{display:block;font-size:13.5px;font-weight:600;color:var(--bc-txt)}
+.bc-field input{width:100%;background:transparent;border:none;border-bottom:1.5px solid var(--bc-lime);color:#fff;font:600 17px/1.4 'Nunito',sans-serif;padding:6px 0 7px;outline:none}
+.bc-field input::placeholder{color:rgba(255,255,255,.45)}
+.bc-or{display:flex;align-items:center;gap:14px;margin:20px 0;font:800 12px/1 'Nunito',sans-serif;letter-spacing:.14em;color:#fff}
+.bc-or::before,.bc-or::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.3)}
+.bc-acc .bc-pill{margin-top:14px}
+.bc-acc .bc-pill:first-child{margin-top:26px}
+.bc-pill.dk{color:#1B2A4E}
+
+/* data — their consent screen */
+.bc-illo{width:120px;height:120px;border-radius:50%;margin:16px auto 0;background:rgba(255,255,255,.1);display:grid;place-items:center;position:relative}
+.bc-illo i{width:58px;height:58px;background:#fff;-webkit-mask:url(img/stopwatch.svg) center/contain no-repeat;mask:url(img/stopwatch.svg) center/contain no-repeat}
+.bc-illo svg{width:62px;height:62px}
+.bc-dh{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:25px;line-height:1.1;color:#fff;text-align:center;margin-top:18px}
+.bc-dp{font-size:13.5px;line-height:1.5;color:var(--bc-txt);font-weight:600;margin-top:14px}
+.bc-dp a{color:#fff;font-weight:800}
+.bc-dl{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.bc-dl div{display:flex;gap:10px;align-items:center;font-size:14px;font-weight:700;color:#fff}
+.bc-dl .ok{width:20px;height:20px;border-radius:50%;background:var(--bc-lime);display:grid;place-items:center;flex:none}
+.bc-dl .ok svg{width:11px;height:11px;stroke:var(--bc-blue);stroke-width:3.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.bc-att{position:absolute;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:40}
+.bc-att.on{display:flex}
+.bc-att .al{width:272px;background:rgba(242,242,247,.96);border-radius:14px;text-align:center;color:#000;font-family:-apple-system,'Nunito Sans',sans-serif;overflow:hidden}
+.bc-att .al p{padding:18px 16px 16px;font-size:15px;font-weight:600;line-height:1.3}
+.bc-att .al button{display:block;width:100%;height:44px;border-top:1px solid rgba(60,60,67,.29);color:#0A7AFF;font-size:16px}
+
+.hidden{display:none !important}
+
+/* dark mode — an approximation: no dark frames were supplied */
+.phone-in.dark{--bc-blue:#0B1430;--bc-blue2:#17264A;--bc-deep:#081026;--bc-mint:#0F2A33;--bc-navy:#E6F3F4;
+  --bc-line:rgba(255,255,255,.22);--bc-pill:#E9EFFC;--bc-pill-ink:#0B1430;background:var(--bc-blue)}
+.phone-in.dark .screenwrap{background:var(--bc-blue)}
+.phone-in.dark .scr--welcome .bc-pill.blue{background:var(--bc-lime);color:#13306E}
+.phone-in.dark .bc-cphone,.phone-in.dark .bc-tag{background:#1D3A55}
+.phone-in.dark .bc-pager i{background:rgba(230,243,244,.25)}
+.phone-in.dark .bc-pager i.on{background:linear-gradient(90deg,#E6F3F4 30%,rgba(230,243,244,.25) 30%)}
+.phone-in.dark .bc-next{background:var(--bc-lime);color:#0B1430}
+.phone-in.dark .bc-opt.on{background:rgba(212,255,133,.06)}
+.phone-in.dark .bc-unit button.on{background:var(--bc-lime);color:#0B1430}
+.phone-in.dark .bc-plan .note{background:rgba(0,0,0,.2)}
+.phone-in.dark .bc-payfoot{background:var(--bc-blue)}
+.phone-in.dark .bc-att .al{background:rgba(44,44,46,.96);color:#fff}
+.phone-in.dark .bc-att .al button{border-top-color:rgba(84,84,88,.6);color:#0A84FF}
+.phone-in.dark .bc-dot i{background:#0B1430}
+
+/* prototype toolbar, walkthrough, QR */
+.tools{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:520px}
+.seg{display:inline-flex;align-items:center;background:#fff;border:1px solid #DCE3EE;border-radius:20px;padding:3px;gap:2px}
+.seg button{padding:6px 11px;border-radius:16px;font:700 12px/1 'Nunito Sans',sans-serif;color:var(--ink2);transition:.14s}
+.seg button.on{background:var(--ink);color:#fff}
+.demo-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:20px;background:var(--accent);color:#fff;
+  font:800 12px/1 'Nunito Sans',sans-serif}
+.demo-cap{width:390px;max-width:calc(100vw - 24px);background:#fff;border:1px solid var(--hair);border-radius:16px;padding:14px 14px 12px;
+  display:flex;align-items:center;gap:12px;position:relative;overflow:hidden;box-shadow:0 4px 18px rgba(27,42,78,.07)}
+.demo-cap .bar{position:absolute;left:0;top:0;right:0;height:3px;background:#EEF2F8}
+.demo-cap .bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .25s linear}
+.demo-cap p{flex:1;font-size:13.5px;line-height:1.45;color:var(--ink);margin:0;font-weight:600}
+.demo-cap button{font:800 12px/1 'Nunito Sans',sans-serif;color:var(--ink2);padding:7px 10px;border-radius:12px;border:1px solid #DCE3EE;flex:none}
+.finger{position:absolute;z-index:90;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:rgba(27,42,78,.28);
+  border:2px solid rgba(255,255,255,.95);box-shadow:0 4px 14px rgba(0,0,0,.25);pointer-events:none;opacity:0;left:50%;top:60%;
+  transition:left .32s cubic-bezier(.4,0,.2,1),top .32s cubic-bezier(.4,0,.2,1),opacity .2s,transform .15s}
+.finger.show{opacity:1}
+.finger.press{transform:scale(.78);background:rgba(27,42,78,.42)}
+.qr{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--hair);border-radius:16px;padding:10px 16px 10px 10px;text-align:left}
+.qr img{width:135px;height:135px;display:block;image-rendering:pixelated;border-radius:6px}
+.qr span{font-size:12.5px;line-height:1.45;color:var(--ink2)}
+.qr b{display:block;color:var(--ink);font-size:13.5px}
+@media(max-width:1080px){.qr{display:none}}
+
+#view-proto .tools{order:0} #view-proto .demo-cap{order:1} #view-proto .phone{order:2} #view-proto .chips{order:3}
+#view-proto .chiphint{order:4} #view-proto .qr{order:5}
+.cta-row .qr{order:2}
+/* on a phone: the prototype is the screen */
+@media(max-width:500px){
+  #view-proto .phonecol{padding:0 0 28px;gap:14px}
+  #view-proto .phone{width:100vw;height:calc(100svh - 58px);min-height:640px;border:0;border-radius:0;box-shadow:none;order:1}
+  #view-proto .phone-in{border-radius:0}
+  #view-proto .island,#view-proto .sbar,#view-proto .homebar{display:none}
+  #view-proto .scr-top{padding-top:12px}
+  #view-proto .scr-foot{padding-bottom:18px}
+  #view-proto .bc-paytop{padding:0}
+  #view-proto .bc-x{top:12px}
+  #view-proto .bc-payhead{padding-top:16px}
+  #view-proto .scr--offer .bc-x{top:22px !important}
+  #view-proto .scr--offer .bc-h{margin-top:40px !important}
+  #view-proto .bc-payfoot{padding-bottom:16px}
+  #view-proto .tools{order:3;padding:0 12px}
+  #view-proto .demo-cap{position:fixed;left:12px;right:12px;bottom:12px;width:auto;max-width:none;z-index:95}
+  #view-proto .chips{order:4;padding:0 12px}
+  #view-proto .chiphint{order:5}
+}
+
+/* overview: walkthrough button */
+.herobtns{display:flex;justify-content:center;margin-top:30px}
+.ghostbtn{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--hair2);color:var(--ink);font-size:14px;
+  font-weight:800;padding:9px 20px 9px 9px;border-radius:30px;box-shadow:0 2px 12px rgba(27,42,78,.06);transition:.16s}
+.ghostbtn:hover{box-shadow:0 4px 18px rgba(27,42,78,.1)}
+.ghostbtn .pl{width:30px;height:30px;border-radius:50%;background:var(--accent);display:grid;place-items:center}
+.ghostbtn .pl svg{width:12px;height:12px;fill:#fff;margin-left:2px}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-width:470px;margin:0 auto}
+.chip{padding:7px 13px;border-radius:20px;border:1px solid #DCE3EE;background:#fff;
+  font:700 12px/1 'Nunito Sans',sans-serif;color:var(--ink2);transition:.14s}
+.chip:hover{color:var(--ink);border-color:#C3CDDC}
+.chip.offer{border-style:dashed;border-color:var(--accent);color:var(--accent-lift)}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff;border-style:solid}
+.chiphint{text-align:center;font-size:11px;color:var(--ink3);margin:0;max-width:430px}
+
+/* ============ the short panel ============ */
+.pn{padding:30px 30px 60px}
+.pn-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink)}
+.pn-n.ctx{color:var(--panel-muted)}
+.pn-t{font-size:23px;line-height:1.18;font-weight:800;letter-spacing:-.025em;margin:8px 0 0;color:var(--panel-ink)}
+.pn-hyp{font-size:15px;line-height:1.62;color:#2B3654;margin:16px 0 0}
+.pn-hyp b{font-weight:800;color:var(--panel-ink)}
+.pn-out{margin-top:22px;border-top:1px solid var(--panel-line);padding-top:18px}
+.pn-out .lab{font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--panel-muted)}
+.pn-out .v{font-size:31px;font-weight:800;letter-spacing:-.03em;color:var(--accent-ink);margin-top:7px;line-height:1}
+.pn-kept{margin-top:22px;font-size:12.5px;line-height:1.55;color:var(--panel-muted)}
+.pn-kept b{color:#2B3654;font-weight:800}
+.pn-foot{font-size:11.5px;line-height:1.55;color:var(--panel-muted);border-top:1px solid var(--panel-line);
+  padding-top:14px;margin-top:26px}
+.pn-sep{height:1px;background:var(--panel-line);margin:26px 0}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-in">
+    <div class="nav-brand">
+      <span class="mk" data-logo aria-label="The Body Coach"></span>
+      <b>Growth Audit</b><span>· The Body Coach</span>
+    </div>
+    <div class="nav-links">
+      <button class="on" data-view="over">Overview</button>
+      <button data-view="proto">Prototype</button>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= OVERVIEW ======================= -->
+<div class="view on" id="view-over">
+
+<div class="hero">
+  <div class="wrap">
+    <!-- month + year = the day you build, not this file --><div class="eyebrow">Growth Audit · November 2026</div>
+    <h1>The Body Coach</h1>
+    <p class="lede">Five ideas to unlock more revenue from the traffic you already have.</p>
+    <div class="meta">Prepared by <b>Adapty</b> · based on your live iOS flow and your App Store listing</div>
+    <div class="herobtns"><button class="ghostbtn" data-demo><span class="pl"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></svg></span>Watch the 30-second walkthrough</button></div>
+    <div class="stats">
+      <div class="stat"><b>30,000+</b><span>apps run subscriptions<br>on Adapty</span></div>
+      <div class="stat"><b>5</b><span>ideas, each rebuilt<br>as a working screen</span></div>
+      <div class="stat"><b>0</b><span>design changes<br>to your art direction</span></div>
+    </div>
+
+    <div class="fb">
+      <div class="fb-k">Built in Adapty Flow Builder</div>
+      <div class="fb-i">
+        <span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p><b>Millions of dollars</b> in subscription revenue pass through Flow Builder every month.</p>
+      </div>
+      <div class="fb-i">
+        <span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p><b>Nearly 500 apps</b> actively build their paywalls and onboarding in it — plenty of them past $100K MRR.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="sec-k">What this is</div>
+    <h2>We opened The Body Coach the way a new user does, then rebuilt the parts we think are leaving money on the table.</h2>
+    <p class="body">Adapty powers subscriptions for <b>30,000+ apps</b>, so we get to see what actually moves conversion and ARPU across the market rather than inside one app. We pointed that at The Body Coach: installed it, went through every screen up to the first workout, read your App Store listing and your website, and looked for gaps between what you already have and what you show people before they decide.</p>
+    <p class="body">What follows is five ideas — not fifteen. Each one is a hypothesis you can A/B test, and each one is built into a clickable prototype so you can see it rather than imagine it. <b>The prototype uses your design, not ours.</b></p>
+
+    <div class="notes">
+      <div class="note">
+        <h4>We did not redesign your app</h4>
+        <p>Every screen in the prototype is yours — your blue, your lime, the outline answer cards, Joe on the level cards, the kg / lb wheel, your paywall and your Login or Sign Up screen. Only the order changed, plus a few things you already own but show at the wrong moment.</p>
+      </div>
+      <div class="note">
+        <h4>You may have tested some of this</h4>
+        <p>We are working from the outside, so we cannot see your experiment history. If one of these is something you have already run, tell us — we will go deeper on the rest rather than repeat it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rule"></div>
+
+<div class="sec">
+  <div class="wrap">
+    <div class="sec-k">The five ideas</div>
+    <h2>Ranked by what we would test first.</h2>
+    <p class="body">Each one links straight to the screen in the prototype.</p>
+
+    <div class="ideas">
+      <button class="idea" data-jump="welcome">
+        <span class="no">01</span>
+        <span>
+          <h3>Let people in before you ask for an email</h3>
+          <p>Get Started opens Login or Sign Up, then a name screen, then “Check your inbox”. A new user leaves the app for their email on the fifth screen, before a single question about their goal. Ask for the account once the trial has started.</p>
+          <span class="seeit">See the screen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
+        <span class="out"><b>CR +8%</b><b>ARPU +17%</b><span>to purchase · per install</span></span>
+      </button>
+
+      <button class="idea" data-jump="ready">
+        <span class="no">02</span>
+        <span>
+          <h3>Build the plan before the paywall</h3>
+          <p>Today the paywall arrives before anyone picks a level, a meal type or enters their weight. Those questions all come after purchase. Ask them first, name the answers while the plan warms up, and show “Bosh! Your plan is ready.” before the price.</p>
+          <span class="seeit">See the screen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
+        <span class="out"><b>CR +10–15%</b><span>to purchase</span></span>
+      </button>
+
+      <button class="idea" data-jump="paywall">
+        <span class="no">03</span>
+        <span>
+          <h3>Name their plan on the paywall</h3>
+          <p>Every visitor reads the same “Start your journey to feeling your best, for free!”. Someone who picked Beginner and Lose weight should read about a Beginner plan to lose weight, next to Joe and the meals they chose.</p>
+          <span class="seeit">See the screen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
+        <span class="out"><b>CR +15–20%</b><span>to purchase</span></span>
+      </button>
+
+      <button class="idea" data-jump="offer">
+        <span class="no">04</span>
+        <span>
+          <h3>Offer one month when they close</h3>
+          <p>The only way in today is the 7-day trial on the $119.99 year. Someone not ready for a year has nowhere to go, though your $19.99 monthly plan sits one card below. Show it on close, as one month, with nothing discounted.</p>
+          <span class="seeit">See the screen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
+        <span class="out"><b>ARPU +10–15%</b><span>second chance</span></span>
+      </button>
+
+      <button class="idea" data-jump="data">
+        <span class="no">05</span>
+        <span>
+          <h3>Ask about tracking once they subscribe</h3>
+          <p>“Using your data responsibly” and the iOS tracking prompt are screens six and seven, before the goal question. Your own first reason for tracking is to stop showing ads to subscribers, so ask once they are one.</p>
+          <span class="seeit">See the screen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
+        <span class="out"><b>CR +10–15%</b><span>to purchase</span></span>
+      </button>
+    </div>
+
+    <div class="band">
+      <div class="txt">
+        <div class="lab">Potential result</div>
+        <p>Run together, these five change where the price appears and what it says: setup first, a plan they can see, a paywall that names it, and a smaller step for anyone who says no to a year.</p>
+      </div>
+      <div class="nums">
+        <div><b>+30%</b><span>CR to purchase</span></div>
+        <div><b>+20%</b><span>ARPU</span></div>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <div class="qr"><img src="img/qr.svg?v=1" alt="QR code for the prototype"><span><b>Or open it on your phone</b>Scan to try the flow in your hand.</span></div>
+      <button class="bigbtn" data-view="proto">Open the prototype
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="foot">
+  <div class="wrap">
+    Impact ranges are Adapty's expected effect from teardowns and A/B tests across subscription apps — not measured lift for The Body Coach. Every price, rating, quote, photo and feature line here and in the prototype comes from The Body Coach's own App Store listing, website and in-app screens.
+  </div>
+</div>
+</div><!-- /view-over -->
+
+<!-- ======================= PROTOTYPE ======================= -->
+<div class="view" id="view-proto">
+<div class="stage">
+  <div class="phonecol">
+    <div class="tools" id="tools">
+      <div class="seg" id="segTheme"><button data-theme="light" class="on">Light</button><button data-theme="dark">Dark</button></div>
+      <button class="demo-btn" id="demoBtn"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M7 4.5v15l12-7.5z"/></svg>30-sec walkthrough</button>
+    </div>
+    <div class="phone">
+      <div class="phone-in" id="phoneIn">
+        <div class="island"></div>
+        <div class="sbar" id="sbar">
+          <span>9:41</span>
+          <span class="glyphs">
+            <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7.5" width="3" height="3.5" rx="1"/><rect x="4.5" y="5.5" width="3" height="5.5" rx="1"/><rect x="9" y="3" width="3" height="8" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg>
+            <svg width="16" height="11" viewBox="0 0 16 11" fill="currentColor"><path d="M8 10.5 5.6 7.9a3.4 3.4 0 0 1 4.8 0L8 10.5Zm0-5.6a6.4 6.4 0 0 0-4.5 1.9L1.7 4.9a9 9 0 0 1 12.6 0l-1.8 1.9A6.4 6.4 0 0 0 8 4.9Z"/></svg>
+            <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".6" y=".6" width="20" height="10.8" rx="3" stroke="currentColor" stroke-opacity=".5"/><rect x="2.2" y="2.2" width="16.5" height="7.6" rx="1.8" fill="currentColor"/><path d="M22.3 4.1v3.8a2 2 0 0 0 0-3.8Z" fill="currentColor" fill-opacity=".5"/></svg>
+          </span>
+        </div>
+        <div class="homebar" id="homebar"></div>
+        <div class="finger" id="finger"></div>
+        <div class="screenwrap">
+
+<!-- WELCOME -->
+<section class="scr scr--welcome" data-id="welcome">
+  <div class="scr-top">
+    <div class="bc-pager"><i class="on"></i><i></i><i></i><i></i></div>
+    <p class="bc-wk">Welcome to The Body Coach</p>
+    <h2 class="bc-wh">Your food and fitness plan, all in one place</h2>
+  </div>
+  <div class="scr-body">
+    <div class="bc-collage">
+      <div class="bc-cphone"><img src="img/planner.png" alt=""></div>
+      <span class="bc-dot d1"><i style="--m:url(img/bowl.svg)"></i></span>
+      <span class="bc-tag eat">EAT</span>
+      <div class="bc-cfood"><img src="img/food-salad.jpg" alt=""></div>
+      <span class="bc-tag train">TRAIN</span>
+      <div class="bc-cjoe"><img src="img/joe-stretch.jpg" alt=""></div>
+      <span class="bc-dot d2"><i style="--m:url(img/shoe.svg)"></i></span>
+    </div>
+  </div>
+  <div class="scr-foot">
+    <button class="bc-pill blue" id="startBtn" data-go="goal">Get started</button>
+    <button class="bc-link" data-go="account">Already a member? Log in</button>
+  </div>
+</section>
+
+<!-- GOAL -->
+<section class="scr" data-id="goal" data-light="1">
+  <div class="scr-top">
+    <div class="bc-prog"><i style="width:14%"></i></div>
+    <button class="bc-back" data-back aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <h2 class="bc-h">Which goal is the most important to you?</h2>
+    <p class="bc-sub">I’d like to…</p>
+  </div>
+  <div class="scr-body"><div class="bc-opts" id="goalList"></div></div>
+  <div class="scr-foot bc-footr"><button class="bc-next" data-go="level" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button></div>
+</section>
+
+<!-- LEVEL -->
+<section class="scr" data-id="level" data-light="1">
+  <div class="scr-top">
+    <div class="bc-prog"><i style="width:30%"></i></div>
+    <button class="bc-back" data-back aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <h2 class="bc-h">Choose your workout level</h2>
+    <p class="bc-sub">Start with whichever feels right for you. You can change it anytime.</p>
+  </div>
+  <div class="scr-body"><div class="bc-lvls" id="lvlList"></div></div>
+  <div class="scr-foot" style="padding-top:0;padding-bottom:16px"></div>
+</section>
+
+<!-- FOOD -->
+<section class="scr" data-id="food" data-light="1">
+  <div class="scr-top">
+    <div class="bc-prog"><i style="width:46%"></i></div>
+    <button class="bc-back" data-back aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <h2 class="bc-h">What kind of food would you like?</h2>
+    <p class="bc-sub">All meals will be tailored specifically to you and your body. You can filter recipes by more specific preferences later.</p>
+  </div>
+  <div class="scr-body"><div class="bc-opts" id="foodList"></div></div>
+  <div class="scr-foot bc-footr"><button class="bc-next" data-go="weight" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button></div>
+</section>
+
+<!-- WEIGHT -->
+<section class="scr" data-id="weight" data-light="1">
+  <div class="scr-top">
+    <div class="bc-prog"><i style="width:62%"></i></div>
+    <button class="bc-back" data-back aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <h2 class="bc-h">What is your weight?</h2>
+    <p class="bc-sub">We use your weight to calculate your BMI, and determine your plan’s nutrient levels.</p>
+  </div>
+  <div class="scr-body">
+    <div class="bc-unit" id="unitSeg"><button data-u="kg" class="on">kg</button><button data-u="lb">lb</button></div>
+    <div class="bc-wheelbox"><div class="bc-hi"></div><div class="bc-wheel" id="wheel"></div></div>
+  </div>
+  <div class="scr-foot bc-footr"><button class="bc-next" id="weightNext" data-go="loader" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button></div>
+</section>
+
+<!-- LOADER -->
+<section class="scr scr--load" data-id="loader" data-light="1">
+  <div class="scr-top"></div>
+  <div class="scr-body">
+    <h2 class="bc-lh">Your tailored plan is doing a quick warm up</h2>
+    <div class="bc-shoe"><b></b><b></b><b></b><i class="s"></i></div>
+    <div class="bc-steps" id="loadSteps">
+      <div class="bc-step"><span class="d"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span class="t"></span></div>
+      <div class="bc-step"><span class="d"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span class="t"></span></div>
+      <div class="bc-step"><span class="d"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span class="t"></span></div>
+      <div class="bc-step"><span class="d"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span class="t"></span></div>
+    </div>
+  </div>
+  <div class="scr-foot"></div>
+</section>
+
+<!-- PLAN READY -->
+<section class="scr" data-id="ready" data-light="1">
+  <div class="scr-top">
+    <h2 class="bc-ph">Bosh! Your plan<br>is ready.</h2>
+    <p class="bc-psub">Here’s what Joe has lined up for you.</p>
+  </div>
+  <div class="scr-body">
+    <div class="bc-pcards">
+      <div class="bc-pc"><img id="rdLvlImg" src="img/joe-stretch.jpg" alt=""><div><div class="k">Train</div><div class="v" id="rdLvl"></div><div class="s" id="rdLvlS"></div></div></div>
+      <div class="bc-pc"><img id="rdFoodImg" src="img/food-bake.jpg" alt=""><div><div class="k">Eat</div><div class="v" id="rdFood"></div><div class="s" id="rdFoodS"></div></div></div>
+      <div class="bc-pgoal"><span class="ic"><i></i></span><p id="rdGoal"></p></div>
+      <div class="bc-tr"><img src="img/nathan.jpg" alt="Nathan before and after"><div><p>“This app is the best decision you will make if you are looking for a lifestyle change.”</p><span>Nathan, Body Coach member</span></div></div>
+    </div>
+  </div>
+  <div class="scr-foot"><button class="bc-pill" id="readyBtn" data-go="paywall">Let’s go!</button></div>
+</section>
+
+<!-- PAYWALL -->
+<section class="scr scr--pay" data-id="paywall" data-light="1">
+  <div class="scr-top bc-paytop"><button class="bc-x" id="payClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="scr-body bc-paybody" id="payBody">
+    <div class="bc-payhead">
+      <img class="bc-ec" src="img/ec.svg" alt="App Store Editors’ Choice">
+      <h2 class="bc-payh" id="payH"></h2>
+      <div class="bc-stars"><i>★★★★★</i>4.8 stars (44K ratings)</div>
+      <div class="bc-tiles">
+        <figure><img id="tile1" src="img/joe-stretch.jpg" alt=""><figcaption id="tile1c"></figcaption></figure>
+        <figure><img id="tile2" src="img/food-bake.jpg" alt=""><figcaption id="tile2c"></figcaption></figure>
+      </div>
+    </div>
+    <div class="bc-paylow">
+      <div id="planList">
+        <button class="bc-plan on" data-v="year">
+          <div class="pr"><div><div class="bc-badges"><span>7-DAY FREE TRIAL</span><span>BEST VALUE</span></div><b>Annual</b><div class="p1">$119.99</div><div class="p2">$10.00 per month · <em>Save 50%</em></div></div><span class="bc-rad"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span></div>
+          <div class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg>No commitment, cancel anytime. We will notify you 2 days before trial ends.</div>
+        </button>
+        <button class="bc-plan" data-v="month">
+          <div class="pr"><div><b>Monthly</b><div class="p1">$19.99</div></div><span class="bc-rad"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span></div>
+        </button>
+      </div>
+      <div class="bc-quotes">
+        <div class="bc-q"><span class="av">L</span><p>“I am loving my new way of life. My confidence has grown and I feel so good.”</p><div class="who"><b>Lisa</b>Joined Sept 2024</div></div>
+        <div class="bc-q"><span class="av">N</span><p>“I have managed to lose 3 stone in weight and have so much motivation to keep that up!”</p><div class="who"><b>Nathan</b>Joined Jan 2024</div></div>
+      </div>
+      <p class="bc-fine">Subscriptions renew automatically. Manage or cancel any time in your App Store account settings.<br>Terms &amp; Conditions · Privacy Policy</p>
+    </div>
+  </div>
+  <div class="scr-foot bc-payfoot">
+    <button class="bc-pill lime" id="payCta">Try for free</button>
+    <p class="bc-cap" id="payCap"></p>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="scr scr--offer sheet" data-id="offer" data-light="1">
+  <div class="scr-top">
+    <div class="bc-grab"></div>
+    <button class="bc-x" id="offClose" aria-label="Close" style="top:58px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <h2 class="bc-h" style="margin-top:40px">Not ready for a year? <em>Start with a month.</em></h2>
+    <p class="bc-sub" id="offSub"></p>
+  </div>
+  <div class="scr-body">
+    <div class="bc-cmp">
+      <div class="bc-cr hd"><span></span><span>Monthly</span><span>Annual</span></div>
+      <div class="bc-cr"><span>You pay today</span><span class="big">$19.99</span><span class="big">$0</span></div>
+      <div class="bc-cr"><span>Then</span><span class="mut">$19.99/mo</span><span class="mut">$119.99/yr</span></div>
+      <div class="bc-cr"><span>Commitment</span><span>1 month</span><span>12 months</span></div>
+      <div class="bc-cr"><span id="cmpPlan"></span><span><i class="ok"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i></span><span><i class="ok"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i></span></div>
+      <div class="bc-cr"><span>1000+ recipes, portioned for you</span><span><i class="ok"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i></span><span><i class="ok"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i></span></div>
+      <div class="bc-cr"><span>Shopping lists</span><span><i class="ok"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i></span><span><i class="ok"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i></span></div>
+      <div class="bc-cr"><span>Classes &amp; community</span><span><i class="ok"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i></span><span><i class="ok"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i></span></div>
+    </div>
+  </div>
+  <div class="scr-foot">
+    <button class="bc-pill lime" id="offerCta">Start monthly · $19.99</button>
+    <p class="bc-cap">Billed monthly. Cancel anytime in your App Store settings.</p>
+    <button class="bc-txtbtn" id="offBack">Or try the year free for 7 days</button>
+  </div>
+</section>
+
+<!-- ACCOUNT -->
+<section class="scr" data-id="account" data-light="1">
+  <div class="scr-top">
+    <button class="bc-back" data-back aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <h2 class="bc-h">Save your plan</h2>
+    <p class="bc-sub">Enter your email and we’ll send a magic link to log in or sign up. You don’t need a password.</p>
+    <span class="bc-done" id="accDone"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span id="accDoneT"></span></span>
+  </div>
+  <div class="scr-body bc-acc">
+    <div class="bc-field"><label for="accEmail">Email address</label><input id="accEmail" type="email" placeholder="you@example.com" autocomplete="off"></div>
+    <button class="bc-pill" data-go="data">Continue with email</button>
+    <div class="bc-or">OR</div>
+    <button class="bc-pill dk" data-go="data"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.8 1.2 1.8 2.6 3.1 2.6 1.3-.1 1.7-.8 3.3-.8 1.5 0 1.9.8 3.3.8 1.4 0 2.2-1.2 3-2.5 1-1.4 1.3-2.7 1.4-2.8-.1 0-2.6-1-2.6-4.3ZM14 5.3c.7-.8 1.2-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4Z"/></svg>Continue with Apple</button>
+    <button class="bc-pill dk" data-go="data"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.6 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.9a5 5 0 0 1-2.2 3.3v2.7h3.6c2.1-1.9 3.3-4.8 3.3-7.9Z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.3-2.7l-3.6-2.8c-1 .7-2.2 1.1-3.7 1.1-2.9 0-5.3-1.9-6.2-4.5H2.1v2.8A11 11 0 0 0 12 23Z"/><path fill="#FBBC05" d="M5.8 14.1a6.6 6.6 0 0 1 0-4.2V7.1H2.1a11 11 0 0 0 0 9.8l3.7-2.8Z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.2 1.7l3.2-3.2A11 11 0 0 0 2.1 7.1l3.7 2.8C6.7 7.3 9.1 5.4 12 5.4Z"/></svg>Continue with Google</button>
+  </div>
+  <div class="scr-foot"></div>
+</section>
+
+<!-- DATA + TRACKING -->
+<section class="scr" data-id="data" data-light="1">
+  <div class="scr-top"></div>
+  <div class="scr-body">
+    <div class="bc-illo"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 4.6 3.2 8.4 7.5 10 4.3-1.6 7.5-5.4 7.5-10v-6L12 2.5Z"/><path d="m8.6 12 2.4 2.4 4.6-4.8" stroke="#D4FF85" stroke-width="2.2"/></svg></div>
+    <h2 class="bc-dh">Using your data responsibly</h2>
+    <p class="bc-dp">We use data from your device for some of the app’s features. If you agree, we can also use it to:</p>
+    <div class="bc-dl">
+      <div><span class="ok"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>Stop showing you ads if you’re subscribed</div>
+      <div><span class="ok"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>Show you more relevant offers</div>
+      <div><span class="ok"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>Understand which of our ads are working</div>
+    </div>
+    <p class="bc-dp">We never sell your data. You can read more about this in our <a>privacy policy</a> and change your preferences later in <a>settings</a>.</p>
+  </div>
+  <div class="scr-foot"><button class="bc-pill" id="dataCta">Continue</button></div>
+  <div class="bc-att" id="att"><div class="al"><p>Allow “The Body Coach” to track your activity across other companies’ apps and websites?</p><button id="attNo">Ask App Not to Track</button><button id="attYes">Allow</button></div></div>
+</section>
+
+        </div>
+      </div>
+    </div>
+    <div class="demo-cap hidden" id="demoCap"><div class="bar"><i id="demoProg"></i></div><p id="demoTxt"></p><button id="demoStop">Stop</button></div>
+    <div class="chips" id="chips"></div>
+    <p class="chiphint">Jump to any screen — answers already filled in.</p>
+    <div class="qr"><img src="img/qr.svg?v=1" alt="QR code for this prototype"><span><b>Open it on your phone</b>Scan to try the flow in your hand.</span></div>
+  </div>
+  <div class="panelcol"><div class="pn" id="panel"></div></div>
+</div>
+</div><!-- /view-proto -->
+
+<script>
+/* ================= their mark, letters in currentColor ================= */
+var LOGO='<svg viewBox="0 0 78 72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44.8 71.3a1.3 1.3 0 0 1 0-2.7C62 67.2 75 59.4 75 50.6c0-4.7-3.2-9-9-12a1.3 1.3 0 1 1 1.2-2.3c6.7 3.5 10.5 8.5 10.5 14.2C77.8 61 64 69.7 45 71.3h-.2ZM34.6 44c6.4-1.3 15.7-4 23.7-8.8 3.6-2.2 6.8-5 9-8.1a15 15 0 0 0 3.2-11.3c-.6-4-3.2-7.5-7.4-10.2A38.1 38.1 0 0 0 45.6.2C37.8-.4 29 .4 19.8 2.8a1.4 1.4 0 1 0 .7 2.6c9-2.2 17.4-3 24.9-2.5 6.6.6 12.2 2.2 16.2 4.9 3.6 2.3 5.7 5.2 6.2 8.3 1.1 6.3-4.7 13-10.9 16.6a88.2 88.2 0 0 1-43.6 10.6c-5.5-.2-9-1.4-10.2-3.6a4 4 0 0 1 0-3.4c1-2.4 4-4.4 8.3-5.6a1.4 1.4 0 1 0-.7-2.6c-6.6 1.8-9.1 5-10.1 7.2-.8 1.9-.8 4 .1 5.7 1.7 3.2 5.800 4.8 12.5 5h2.5c5.6 0 12.4-.7 19-2Z" fill="#00CFDA"/><path fill="currentColor" d="M34.1 39.3c3.2 0 5.5-2.2 5.5-5.2s-2.3-5.3-5.5-5.3c-3 0-5.5 2.2-5.5 5.3 0 3 2.4 5.2 5.5 5.2Zm0-7.7c1.4 0 2.4 1 2.4 2.5 0 1.4-1 2.4-2.4 2.4-1.3 0-2.3-1-2.3-2.4 0-1.5 1-2.5 2.3-2.5ZM19.6 37.8c.6 1 1.6 1.5 3 1.5 2.7 0 4.8-2.2 4.8-5.2s-2-5.3-4.8-5.3c-1.4 0-2.4.5-3 1.5v-4.6h-3.1v13.4h3v-1.3Zm0-4a2.4 2.4 0 0 1 2.4-2.2c1.3 0 2.3 1 2.3 2.5 0 1.4-1 2.4-2.3 2.4-1.3 0-2.3-.9-2.4-2.100v-.7ZM36.2 44.7c-1.3-.2-2.6 0-3.6.6l-.3 2.5c1-.6 2-.8 3-.6 1.4.2 2.2 1 2.1 2.1v.6a4 4 0 0 0-2.4-1c-2-.4-3.6.6-3.8 2.5-.3 1.9 1 3.4 2.8 3.7 1.2.1 2.2-.3 2.8-1.1l-.2 1.2 3 .4.9-6c.3-2.5-1.5-4.5-4.3-4.9Zm1 6.8c-.3 1-1 1.5-2 1.4-.7 0-1.2-.6-1.1-1.2 0-.6.6-1 1.4-.8.6 0 1.1.3 1.6.6ZM48.1 46.3c-3.2-.4-5.9 1.3-6.3 4.5-.4 3.1 1.7 5.5 5 6 .7 0 2 0 3-.6l.4-3c-.8.6-1.9 1-3 .8-1.5-.2-2.5-1.4-2.3-2.8.2-1.4 1.5-2.3 3-2.1 1 .1 2 .6 2.6 1.5l.4-3c-.8-.8-2-1.200-2.8-1.3ZM58.7 47.7c-1.2-.2-2.4.3-3 1.2l.5-4.4-3-.4-1.7 13 3 .4.7-5.2c.2-1.3 1-2.1 2.2-2 1 .2 1.7 1 1.5 2.3l-.7 5.4 3 .4.8-5.8c.4-2.7-1-4.6-3.3-5ZM20.5 17.6l1.5-.2.5 3.4c.4 3 2.3 4 4.6 3.8.6-.1 1.4-.4 2-.7l-.3-2.7c-.3.3-.8.5-1.5.6-.8.1-1.6-.3-1.8-1.6l-.4-3.2 3.1-.4L28 14l-3.1.4-.4-2.6-3 .4.3 2.6-1.6.2.4 2.5ZM35.6 12.8c-1.2.2-2.2 1-2.6 2l-.6-4-3 .4L31 23.8l3-.4-.6-5.2c-.2-1.3.5-2.3 1.6-2.5 1-.1 2 .6 2 1.8l.8 5.4 3-.4-.7-5.8c-.4-2.7-2.2-4.2-4.5-3.9ZM47.6 21.9c1.8-.2 3-.8 3.7-1.7l-.3-2.5c-1 .9-2 1.4-3.1 1.6-1.800.2-2.9-.5-3.4-1.7l6.8-.9c0-3.3-2-5.7-5.3-5.2a5 5 0 0 0-4.5 5.9c.5 3.1 2.9 5 6.1 4.5Zm-1.4-8c1-.1 1.7.6 2 1.5l-3.9.5c.1-1.1.8-1.8 1.9-2ZM57 32.7c.2 0 .4-.2.6-.4L56.3 29H53l2.1 4.8 1.8-1ZM61.9 29H61l-.5 1.2-2 4.7-.2.2-2 1.2.9 2.2-1.8 4.5h2.7l5-11.4 1.2-2.6h-2.4ZM43.4 38.8c2.9-1 5.7-2 8.4-3.3v-9.8h-3v4.6c-.7-1-1.7-1.5-3-1.5-2.8 0-5 2.2-5 5.3 0 2 1.1 3.8 2.6 4.7Zm3-7.2c1.2 0 2.2.9 2.3 2.1v.7a2.4 2.4 0 0 1-2.3 2.1c-1.4 0-2.4-1-2.4-2.4 0-1.5 1-2.5 2.4-2.5ZM11.2 43.2h2.1c1.5.2 3.300.1 5.2 0-.8-.7-2-1-2.7-1.2-1.8-.2-3.4.2-4.600 1.2ZM15 49.7c-1.6-.2-2.6-1.4-2.4-2.8l.3-.9a35 35 0 0 1-3.3-.3l-.1.8c-.4 3.2 1.6 5.6 4.9 6 .8 0 2.1 0 3-.6l.5-3c-.9.7-2 1-3 .8ZM20 46c-.3.5-.6 1.1-.6 1.8-.4 3 1.6 5.6 4.7 6A5.3 5.3 0 0 0 29 45c-3 .4-6 .8-9 1Zm7.2 2.8c-.2 1.5-1.4 2.4-2.7 2.2-1.4-.2-2.2-1.400-2-2.8.1-1.4 1.3-2.3 2.6-2.1 1.4.2 2.2 1.3 2 2.7Z"/></svg>';
+document.querySelectorAll('[data-logo]').forEach(function(el){ el.innerHTML=LOGO; });
+
+/* ================= their options, verbatim ================= */
+var CK='<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>';
+var GOALS=[
+ {v:'fitness',t:'Improve my fitness level',h:'improve your fitness',p:'improve your fitness level'},
+ {v:'stronger',t:'Get stronger',h:'get stronger',p:'get stronger'},
+ {v:'lose',t:'Lose weight',h:'lose weight',p:'lose weight'},
+ {v:'motivated',t:'Get motivated',h:'get motivated',p:'get motivated'},
+ {v:'eat',t:'Eat healthier',h:'eat healthier',p:'eat healthier'},
+ {v:'plan',t:'Have a plan to follow',h:'follow a plan',p:'have a plan to follow'}
+];
+var LEVELS=[
+ {v:'beginner',t:'Beginner',d:'The perfect place to start. Build foundations, learn techniques and get your body used to regular training.',img:'img/joe-stretch.jpg',pos:'45% 18%'},
+ {v:'intermediate',t:'Intermediate',d:'Ready to build on your foundations? Combine cardio with strength training to get fitter and stronger.',img:'img/joe-pool.jpg',pos:'50% 22%'},
+ {v:'advanced',t:'Advanced',d:'Already fit and ready for more? Take your training to the next level.',img:'img/joe-seated.jpg',pos:'55% 30%'}
+];
+var FOODS=[
+ {v:'mixed',t:'Mixed meals',s:'Meat, fish and veggie dishes',img:'img/food-bake.jpg'},
+ {v:'pesc',t:'Pescatarian meals',s:'Fish and veggie dishes',img:'img/food-fish.jpg'},
+ {v:'veggie',t:'Veggie meals',s:'Veggie dishes only',img:'img/food-bake.jpg'},
+ {v:'vegan',t:'Vegan meals',s:'Plant-based dishes only',img:'img/food-bake.jpg'}
+];
+function G(){ return GOALS.filter(function(g){ return g.v===S.goal; })[0]; }
+function Lv(){ return LEVELS.filter(function(l){ return l.v===S.level; })[0]; }
+function F(){ return FOODS.filter(function(f){ return f.v===S.food; })[0]; }
+
+/* ================= state ================= */
+var S0={theme:'light'};
+function defaults(){ return {theme:S0.theme, goal:'lose', level:'beginner', food:'mixed', kg:57, unit:'kg', plan:'year'}; }
+var S=defaults();
+function wtxt(){ return S.unit==='kg' ? fmtKg(S.kg)+' kg' : Math.round(S.kg*2.20462)+' lb'; }
+function fmtKg(k){ return (Math.round(k*2)/2).toString(); }
+
+/* ================= builders ================= */
+function buildGoals(){ var g=document.getElementById('goalList'); g.innerHTML='';
+  GOALS.forEach(function(o){ var b=document.createElement('button'); b.className='bc-opt'; b.dataset.v=o.v;
+    b.innerHTML='<span class="tx">'+o.t+'</span><span class="bc-ck">'+CK+'</span>';
+    b.onclick=function(){ S.goal=o.v; syncScreen(); }; g.appendChild(b); }); }
+function buildLevels(){ var g=document.getElementById('lvlList'); g.innerHTML='';
+  LEVELS.forEach(function(o){ var d=document.createElement('div'); d.className='bc-lvl'; d.dataset.v=o.v;
+    d.innerHTML='<img src="'+o.img+'" alt="" style="object-position:'+o.pos+'"><div class="in"><h3>'+o.t+'</h3><p>'+o.d+'</p><div class="row"><button class="lm">LEARN MORE</button><button class="sh">START HERE</button></div></div>';
+    d.querySelector('.sh').onclick=function(){ S.level=o.v; syncScreen(); go('food'); }; g.appendChild(d); }); }
+function buildFoods(){ var g=document.getElementById('foodList'); g.innerHTML='';
+  FOODS.forEach(function(o){ var b=document.createElement('button'); b.className='bc-opt'; b.dataset.v=o.v;
+    b.innerHTML='<span class="tx">'+o.t+'<small>'+o.s+'</small></span><span class="bc-ck">'+CK+'</span>';
+    b.onclick=function(){ S.food=o.v; syncScreen(); }; g.appendChild(b); }); }
+
+/* the wheel: real scroll-snap, value written on settle */
+var IH=40, wheel=document.getElementById('wheel'), wheelT=null, WR={kg:[40,150,.5],lb:[88,330,1]};
+function buildWheel(){ var r=WR[S.unit], h='<div class="sp"></div>';
+  for(var v=r[0]; v<=r[1]+1e-9; v+=r[2]) h+='<div class="it">'+(S.unit==='kg'?fmtKg(v):v)+' '+S.unit+'</div>';
+  wheel.innerHTML=h+'<div class="sp"></div>'; }
+function paintWheel(){ var idx=Math.round(wheel.scrollTop/IH); wheel.querySelectorAll('.it').forEach(function(it,i){ var d=Math.abs(i-idx); it.style.opacity=d===0?1:(d===1?.5:.22); }); return idx; }
+function curIdx(){ var r=WR[S.unit], v=S.unit==='kg'?S.kg:Math.round(S.kg*2.20462); return Math.round((v-r[0])/r[2]); }
+function setWheel(){ wheel.scrollTop=curIdx()*IH; paintWheel(); }
+wheel.addEventListener('scroll',function(){ var i=paintWheel(); clearTimeout(wheelT); wheelT=setTimeout(function(){
+  var r=WR[S.unit], v=r[0]+i*r[2]; S.kg = S.unit==='kg' ? v : Math.round(v/2.20462*2)/2; syncScreen(true); },90); });
+document.querySelectorAll('#unitSeg button').forEach(function(b){ b.addEventListener('click',function(){ S.unit=b.dataset.u; buildWheel(); syncScreen(); }); });
+
+/* ================= everything downstream reads S ================= */
+function syncScreen(fromWheel){
+  var g=G(), l=Lv(), f=F();
+  document.querySelectorAll('#goalList .bc-opt').forEach(function(b){ b.classList.toggle('on', b.dataset.v===S.goal); });
+  document.querySelectorAll('#lvlList .bc-lvl').forEach(function(b){ b.classList.toggle('on', b.dataset.v===S.level); });
+  document.querySelectorAll('#foodList .bc-opt').forEach(function(b){ b.classList.toggle('on', b.dataset.v===S.food); });
+  document.querySelectorAll('#unitSeg button').forEach(function(b){ b.classList.toggle('on', b.dataset.u===S.unit); });
+  if(!fromWheel) setWheel();
+
+  var st=document.querySelectorAll('#loadSteps .bc-step .t');
+  st[0].textContent=l.t+' workouts · Cycle 1';
+  st[1].textContent=f.t+', portions for '+wtxt();
+  st[2].textContent='Built around your goal: '+g.h;
+  st[3].textContent='Your first week, planned';
+
+  document.getElementById('rdLvlImg').src=l.img; document.getElementById('rdLvlImg').style.objectPosition=l.pos;
+  document.getElementById('rdLvl').textContent=l.t+' · Cycle 1';
+  document.getElementById('rdLvlS').textContent='Workouts from 10 minutes, with warm-ups, cool-downs and technique tutorials.';
+  document.getElementById('rdFoodImg').src=f.img;
+  document.getElementById('rdFood').textContent=f.t;
+  document.getElementById('rdFoodS').textContent='Portions sized for '+wtxt()+', with a weekly shopping list.';
+  document.getElementById('rdGoal').innerHTML='Your goal: '+g.p+'.<br><span>Level and meal type can be changed any time.</span>';
+
+  document.getElementById('payH').innerHTML='Start your '+l.t+' plan to '+g.h+', <em>for free!</em>';
+  var t1=document.getElementById('tile1'); t1.src=l.img; t1.style.objectPosition=l.pos;
+  document.getElementById('tile1c').textContent=l.t+' workouts that fit into real life';
+  document.getElementById('tile2').src=f.img;
+  document.getElementById('tile2c').textContent=f.t+' you can look forward to';
+  document.querySelectorAll('#planList .bc-plan').forEach(function(b){ b.classList.toggle('on', b.dataset.v===S.plan); });
+  var yr=S.plan==='year';
+  document.getElementById('payCta').textContent= yr ? 'Try for free' : 'Continue';
+  document.getElementById('payCap').textContent= yr ? '7 days free then $119.99 yearly' : '$19.99 billed monthly. Cancel anytime.';
+  document.getElementById('offSub').textContent='The same '+l.t+' plan and the same '+f.t.toLowerCase()+'. Pay monthly, cancel any month.';
+  document.getElementById('cmpPlan').textContent='Your '+l.t+' plan';
+  document.getElementById('accDoneT').textContent= yr ? 'Trial started · your '+l.t+' plan is ready' : 'Subscribed · your '+l.t+' plan is ready';
+}
+
+/* ================= router ================= */
+var ORDER=['welcome','goal','level','food','weight','loader','ready','paywall','offer','account','data'];
+var LABEL={welcome:'Welcome',goal:'Goal',level:'Level',food:'Food',weight:'Weight',loader:'Loader',ready:'Plan ready',paywall:'Paywall',offer:'Offer on close',account:'Account',data:'Data & tracking'};
+var scr={}, hist=[], cur='welcome', loadTimers=[];
+document.querySelectorAll('.scr').forEach(function(s){ scr[s.dataset.id]=s; });
+
+function chrome(){ var dark=S.theme==='dark', l=dark || !!scr[cur].dataset.light;
+  document.getElementById('sbar').classList.toggle('light',l); document.getElementById('homebar').classList.toggle('light',l); }
+function enter(id){ chrome(); paintChips(); paintPanel(); clearLoad(); document.getElementById('att').classList.remove('on');
+  if(id==='loader') runLoader(); if(id==='weight') requestAnimationFrame(setWheel); }
+function go(id,opts){
+  opts=opts||{}; if(id===cur) return;
+  var from=scr[cur], to=scr[id];
+  if(!opts.back) hist.push(cur);
+  if(from){ from.classList.remove('is-active');
+    if(!to.classList.contains('sheet') && !from.classList.contains('sheet')) from.classList.add('is-past'); }
+  if(to.classList.contains('sheet')) from.classList.add('is-active');
+  Object.keys(scr).forEach(function(k){ if(k!==id && !(to.classList.contains('sheet') && k===cur)) scr[k].classList.remove('is-active'); });
+  to.classList.remove('is-past'); to.classList.add('is-active');
+  cur=id; enter(id);
+}
+function back(){
+  if(!hist.length) return;
+  var prev=hist.pop();
+  scr[cur].classList.remove('is-active');
+  scr[prev].classList.remove('is-past'); scr[prev].classList.add('is-active');
+  cur=prev; enter(prev);
+}
+function jump(id){
+  var i=ORDER.indexOf(id);
+  Object.keys(scr).forEach(function(k){ scr[k].classList.add('nofx'); scr[k].classList.remove('is-active','is-past'); });
+  hist=ORDER.slice(0,i<0?0:i);
+  if(id==='offer') { scr.paywall.classList.add('is-active'); hist=ORDER.slice(0,ORDER.indexOf('paywall')+1); }
+  if(id==='account'||id==='data') hist=ORDER.slice(0,ORDER.indexOf('paywall')+1).concat(id==='data'?['account']:[]);
+  scr[id].classList.add('is-active'); cur=id;
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){
+    Object.keys(scr).forEach(function(k){ scr[k].classList.remove('nofx'); }); }); });
+  syncScreen(); enter(id);
+  document.getElementById('payBody').scrollTop=0;
+}
+var chipsBuilt=false;
+function paintChips(){
+  var c=document.getElementById('chips');
+  if(!chipsBuilt){ chipsBuilt=true; c.innerHTML='';
+    ORDER.forEach(function(id){
+      var b=document.createElement('button'); b.className='chip'+(id==='offer'?' offer':''); b.textContent=LABEL[id];
+      b.dataset.id=id; b.onclick=function(){ stopDemo(); jump(id); }; c.appendChild(b);
+    });
+  }
+  c.querySelectorAll('.chip').forEach(function(b){ b.classList.toggle('on', b.dataset.id===cur); });
+}
+
+function clearLoad(){ loadTimers.forEach(clearTimeout); loadTimers=[]; }
+function runLoader(){
+  var k=demo.on?0.48:1;
+  var steps=[].slice.call(document.querySelectorAll('#loadSteps .bc-step'));
+  steps.forEach(function(s){ s.classList.remove('on'); });
+  steps.forEach(function(s,i){ loadTimers.push(setTimeout(function(){ s.classList.add('on'); },(700+i*900)*k)); });
+  loadTimers.push(setTimeout(function(){ if(cur==='loader') go('ready'); },5000*k));
+}
+
+/* ================= wiring ================= */
+document.querySelectorAll('[data-go]').forEach(function(b){ b.addEventListener('click',function(){ if(!b.disabled) go(b.dataset.go); }); });
+document.querySelectorAll('[data-back]').forEach(function(b){ b.addEventListener('click',back); });
+document.querySelectorAll('#planList .bc-plan').forEach(function(b){ b.addEventListener('click',function(){ S.plan=b.dataset.v; syncScreen(); }); });
+document.getElementById('payClose').addEventListener('click',function(){ go('offer'); });
+document.getElementById('payCta').addEventListener('click',function(){ go('account'); });
+document.getElementById('offerCta').addEventListener('click',function(){ S.plan='month'; syncScreen(); go('account'); });
+document.getElementById('offClose').addEventListener('click',function(){ jump('welcome'); });
+document.getElementById('offBack').addEventListener('click',function(){ S.plan='year'; syncScreen(); back(); });
+document.getElementById('dataCta').addEventListener('click',function(){ document.getElementById('att').classList.add('on'); });
+['attNo','attYes'].forEach(function(id){ document.getElementById(id).addEventListener('click',function(){ document.getElementById('att').classList.remove('on'); jump('welcome'); }); });
+
+function setSeg(id,attr,val){ document.querySelectorAll('#'+id+' button').forEach(function(b){ b.classList.toggle('on', b.dataset[attr]===val); }); }
+function setTheme(th){ S.theme=th; S0.theme=th; document.getElementById('phoneIn').classList.toggle('dark',th==='dark'); setSeg('segTheme','theme',th); chrome(); }
+document.querySelectorAll('#segTheme button').forEach(function(b){ b.addEventListener('click',function(){ setTheme(b.dataset.theme); }); });
+
+/* ================= the 30-second walkthrough ================= */
+var demo={tok:0,on:false,t0:0,iv:null}, finger=document.getElementById('finger'), phoneIn=document.getElementById('phoneIn');
+function W(ms){ return new Promise(function(r){ setTimeout(r,ms); }); }
+function cap(txt){ document.getElementById('demoTxt').textContent=txt; }
+async function tap(sel,tok){
+  if(demo.tok!==tok) throw 0;
+  var el=document.querySelector(sel); if(!el) return;
+  var r=el.getBoundingClientRect(), p=phoneIn.getBoundingClientRect(), z=p.width/phoneIn.offsetWidth||1;
+  finger.style.left=((r.left-p.left+r.width/2)/z)+'px'; finger.style.top=((r.top-p.top+r.height/2)/z)+'px';
+  finger.classList.add('show'); await W(380); if(demo.tok!==tok) throw 0;
+  finger.classList.add('press'); await W(120); finger.classList.remove('press'); el.click(); await W(160);
+  if(demo.tok!==tok) throw 0;
+}
+async function pause(ms,tok){ await W(ms); if(demo.tok!==tok) throw 0; }
+function startDemo(){
+  stopDemo(); var tok=++demo.tok; demo.on=true; demo.t0=Date.now();
+  var keep=S.theme; S=defaults(); S.theme=keep; S.goal='fitness'; S.food='mixed'; buildWheel(); jump('welcome');
+  document.getElementById('demoCap').classList.remove('hidden');
+  demo.iv=setInterval(function(){ document.getElementById('demoProg').style.width=Math.min(100,(Date.now()-demo.t0)/290)+'%'; },200);
+  (async function(){
+    try{
+      cap('Get Started now goes straight to the first question — no email, no inbox.'); await pause(1500,tok);
+      await tap('#startBtn',tok);
+      cap('Your goal question, now the second screen.'); await pause(600,tok);
+      await tap('#goalList [data-v=lose]',tok); await pause(350,tok); await tap('[data-id=goal] .bc-next',tok);
+      cap('Your level cards, asked before the price instead of after it.'); await pause(700,tok);
+      await tap('#lvlList [data-v=beginner] .sh',tok);
+      cap('Their food, on your outline cards.'); await pause(550,tok);
+      await tap('#foodList [data-v=pesc]',tok); await pause(350,tok); await tap('[data-id=food] .bc-next',tok);
+      cap('Weight on your wheel — it sizes the portions.'); await pause(450,tok);
+      var r=WR[S.unit]; wheel.scrollTo({top:(curIdx()+4)*IH,behavior:'smooth'}); await pause(950,tok);
+      S.kg=S.kg+4*r[2]; setWheel(); syncScreen(true);
+      await tap('#weightNext',tok);
+      cap('The warm-up names every answer back.'); await pause(2500,tok);
+      cap('“Bosh! Your plan is ready.” — before any price.'); await pause(1700,tok);
+      await tap('#readyBtn',tok);
+      cap('The paywall names their level and goal, with their food.'); await pause(1900,tok);
+      await tap('#planList [data-v=month]',tok); await pause(650,tok); await tap('#planList [data-v=year]',tok); await pause(450,tok);
+      cap('They close it. One smaller step: a month at your own $19.99.'); await tap('#payClose',tok); await pause(2300,tok);
+      cap('That is the flow. Sign-up and the tracking prompt now come after purchase — see the last two chips.');
+      finger.classList.remove('show'); await pause(2400,tok); stopDemo();
+    }catch(e){}
+  })();
+}
+function stopDemo(){ if(!demo.on) return; demo.tok++; demo.on=false; clearInterval(demo.iv); finger.classList.remove('show','press');
+  document.getElementById('demoCap').classList.add('hidden'); }
+document.getElementById('demoBtn').addEventListener('click',startDemo);
+document.getElementById('demoStop').addEventListener('click',stopDemo);
+phoneIn.addEventListener('pointerdown',function(e){ if(e.isTrusted && demo.on) stopDemo(); });
+</script>
+<script>
+/* ---- the short panel: hypothesis + potential outcome, nothing else ---- */
+var PANEL = {
+welcome:{n:1,t:'Let people in before you ask for an email',
+ hyp:'Try sending Get Started straight to the first question, with a small Log in link for members, <b>because today it opens Login or Sign Up, a name screen and then “Check your inbox” — a new user leaves the app for their email before answering a single question</b>.',
+ kept:'Your first welcome slide — the cyan, the planner phone, the EAT and TRAIN tiles, the pager and the blue Get Started pill.',
+ out:'CR +8% · ARPU +17%'},
+goal:{ctx:true,t:'Which goal is the most important to you?',
+ kept:'Untouched — your six goals in your order, the outline cards, the lime check and the round next button. It now comes straight after Welcome instead of after sign-up and the tracking prompt.'},
+level:{ctx:true,t:'Choose your workout level',
+ kept:'Untouched — Joe on full-bleed cards, your descriptions, Learn more and Start here. Today it is asked after purchase; here it is asked before, so the next screens can use it. Photos are from your own website.'},
+food:{ctx:true,t:'What kind of food would you like?',
+ kept:'Untouched — your four meal types and their lines, word for word. Moved before the paywall with level and weight.'},
+weight:{ctx:true,t:'What is your weight?',
+ kept:'Your kg / lb toggle and scrolling wheel, working. In the real flow your sex, health goals, date of birth, height, conditions, medication and lifestyle questions sit here too, all kept — the prototype shows one to stay short.'},
+loader:{n:2,t:'Build the plan before the paywall',
+ hyp:'Try asking your plan questions before the price and naming the answers while it warms up, <b>because today level, food and weight are asked after purchase — so the paywall sells a plan nobody has seen yet</b>.',
+ kept:'Your warm-up line, word for word, and the running shoe with its three speed lines.',
+ out:'CR +10–15%'},
+ready:{n:2,t:'Build the plan before the paywall',
+ hyp:'Try showing the plan they just built — level, cycle, meal type and portions — <b>because your app really does size portions from weight and goal, so this is the plan they will open, not a promise</b>. Change the weight or the food and these cards change.',
+ kept:'“Bosh! Your plan is ready.” and LET’S GO! are your own words. The workout lines are from your App Store listing; Nathan’s quote and transformation are from your homepage.',
+ out:'CR +10–15%'},
+paywall:{n:3,t:'Name their plan on the paywall',
+ hyp:'Try a headline that names the level and goal they picked, with photo tiles that match, <b>because today every visitor reads the same “Start your journey to feeling your best”</b>. Go back and pick Advanced or Get stronger and the paywall follows.',
+ kept:'Editors’ Choice laurel, the stars line, the two photo tiles, Annual with 7-DAY FREE TRIAL and BEST VALUE, Monthly, Lisa and Nathan, and the lime TRY FOR FREE — now docked, so it never sits over the plans.',
+ out:'CR +15–20%'},
+offer:{n:4,t:'Offer one month when they close',
+ hyp:'Try a one-month plan with no trial when someone closes the paywall, <b>because today the only way in is a trial on the $119.99 year — anyone not ready for a year leaves, though $19.99 monthly already exists</b>.',
+ kept:'Your blue, your lime, your outline cards and pill. $19.99 and $119.99 are your own prices and the feature rows are from your App Store listing. Nothing is discounted.',
+ out:'ARPU +10–15%'},
+account:{n:1,t:'Let people in before you ask for an email',
+ hyp:'Try asking for the account here, straight after the trial starts, <b>because now they have a plan worth saving — and the magic link can wait in their inbox while they do their first workout</b>.',
+ kept:'Your Login or Sign Up screen as it ships — email with a magic link, Apple, Google, the white pills and the lime underline.',
+ out:'CR +8% · ARPU +17%'},
+data:{n:5,t:'Ask about tracking once they subscribe',
+ hyp:'Try your data screen and the iOS tracking prompt after purchase, <b>because today they are screens six and seven — a system dialog before goal, Joe or the price</b>. Your first reason, “stop showing you ads if you’re subscribed”, only reads true now.',
+ kept:'Your copy, word for word, the three lime ticks and the white Continue pill. Tap Continue to see the system prompt.',
+ out:'CR +10–15%'}
+};
+
+function outBlock(lab,val){
+  return '<div class="pn-out"><div class="lab">'+lab+'</div><div class="v">'+val+'</div></div>';
+}
+function paintPanel(){
+  var d=PANEL[cur]; if(!d) return;
+  var h='';
+  if(d.ctx){
+    h += '<div class="pn-n ctx">Context · no change proposed</div><h3 class="pn-t">'+d.t+'</h3>'
+       + '<div class="pn-kept">'+d.kept+'</div>';
+  } else {
+    h += '<div class="pn-n">Idea '+d.n+' of 5</div><h3 class="pn-t">'+d.t+'</h3>'
+       + '<p class="pn-hyp">'+d.hyp+'</p>'
+       + outBlock('Potential outcome · based on Adapty data', d.out)
+       + '<div class="pn-kept"><b>Your design, unchanged.</b> '+d.kept+'</div>';
+  }
+  h += '<div class="pn-foot">Ranges are Adapty’s expected effect from tests across 30,000+ subscription apps — not measured lift for The Body Coach. '
+     + 'Prices, ratings, quotes and feature lines come from your own published material.</div>';
+  document.getElementById('panel').innerHTML = h;
+}
+
+/* ---- views, jumps from the overview ---- */
+function showView(v){
+  if(v!=='proto') stopDemo();
+  document.querySelectorAll('.view').forEach(function(x){ x.classList.remove('on'); });
+  document.getElementById('view-'+v).classList.add('on');
+  document.querySelectorAll('.nav-links button[data-view]').forEach(function(b){ b.classList.toggle('on', b.dataset.view===v); });
+  window.scrollTo(0,0);
+  if(v==='proto' && cur==='weight') requestAnimationFrame(setWheel);
+}
+document.querySelectorAll('[data-view]').forEach(function(b){ b.addEventListener('click',function(){ showView(b.dataset.view); }); });
+document.querySelectorAll('.idea[data-jump]').forEach(function(b){
+  b.addEventListener('click',function(){ showView('proto'); jump(b.dataset.jump); });
+});
+document.querySelectorAll('[data-demo]').forEach(function(b){ b.addEventListener('click',function(){ showView('proto'); startDemo(); }); });
+
+buildGoals(); buildLevels(); buildFoods(); buildWheel();
+scr.welcome.classList.add('is-active');
+syncScreen(); chrome(); paintChips(); paintPanel();
+if(/[?&]open=proto/.test(location.search)) showView('proto');
+
+/* stale-cache guard: Pages caches HTML for 10 minutes */
+var BUILD='b1';
+fetch(location.pathname+'?cb='+Date.now(),{cache:'no-store'}).then(function(r){ return r.text(); }).then(function(h){
+  var m=h.match(/var BUILD='([^']+)'/); if(m && m[1]!==BUILD){ var q=new URLSearchParams(location.search); q.set('v',m[1]); location.replace(location.pathname+'?'+q.toString()); }
+}).catch(function(){});
+</script>
+</body>
+</html>
